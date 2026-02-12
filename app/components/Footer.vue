@@ -17,13 +17,13 @@
         <div class="lg:col-span-2">
           <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-gray-500 mb-8">Navigasi</h3>
           <ul class="space-y-4 text-sm font-medium">
-            <li><a href="#about" class="footer-link text-gray-400" aria-label="Navigate to About section">Tentang</a></li>
-            <li><a href="#services" class="footer-link text-gray-400" aria-label="Navigate to Services section">Layanan</a></li>
-            <li><a href="#process" class="footer-link text-gray-400" aria-label="Navigate to Process section">Alur Kerja</a></li>
-            <li><a href="#pricing" class="footer-link text-gray-400" aria-label="Navigate to Pricing section">Paket</a></li>
-            <li><a href="#portfolio" class="footer-link text-gray-400" aria-label="Navigate to Portfolio section">Portofolio</a></li>
-            <li><a href="#testimonials" class="footer-link text-gray-400" aria-label="Navigate to Testimonials section">Testimoni</a></li>
-            <li><a href="#contact" class="footer-link text-gray-400" aria-label="Navigate to Contact section">Hubungi Kami</a></li>
+            <li><NuxtLink to="/#about" class="footer-link text-gray-400" aria-label="Navigate to About section">Tentang</NuxtLink></li>
+            <li><NuxtLink to="/#services" class="footer-link text-gray-400" aria-label="Navigate to Services section">Layanan</NuxtLink></li>
+            <li><NuxtLink to="/#process" class="footer-link text-gray-400" aria-label="Navigate to Process section">Alur Kerja</NuxtLink></li>
+            <li><NuxtLink to="/#pricing" class="footer-link text-gray-400" aria-label="Navigate to Pricing section">Paket</NuxtLink></li>
+            <li><NuxtLink to="/#portfolio" class="footer-link text-gray-400" aria-label="Navigate to Portfolio section">Portofolio</NuxtLink></li>
+            <li><NuxtLink to="/#testimonials" class="footer-link text-gray-400" aria-label="Navigate to Testimonials section">Testimoni</NuxtLink></li>
+            <li><NuxtLink to="/reservasi" class="footer-link text-gray-400" aria-label="Navigate to Contact section">Reservasi</NuxtLink></li>
           </ul>
         </div>
 

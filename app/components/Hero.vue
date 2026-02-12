@@ -39,7 +39,7 @@
       </p> -->
       <div class="flex flex-col md:flex-row justify-center gap-4">
         <a href="#portfolio" class="px-10 py-4 border-2 border-white font-bold uppercase tracking-widest hover:bg-white hover:text-black transition" aria-label="View photography portfolio">Portofolio</a>
-        <a href="#contact" class="px-10 py-4 bg-primary text-black font-bold uppercase tracking-widest hover:brightness-105 transition" aria-label="Book a photography session">Hubungi Kami</a>
+        <a href="/reservasi" class="px-10 py-4 bg-primary text-black font-bold uppercase tracking-widest hover:brightness-105 transition" aria-label="Book a photography session">Reservasi</a>
       </div>
     </div>
   </section>

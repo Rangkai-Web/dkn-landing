@@ -27,7 +27,7 @@
               </li>
             </ul>
           </div>
-          <a :href="plan.link" class="block text-center py-3 font-bold text-xs uppercase tracking-widest transition" :class="plan.popular ? 'bg-primary hover:brightness-105' : 'bg-gray-200 group-hover:bg-gray-300'" :aria-label="plan.ariaLabel">{{ plan.buttonText }}</a>
+          <NuxtLink :to="{ path: plan.link, query: { service: plan.action } }" class="block text-center py-3 font-bold text-xs uppercase tracking-widest transition" :class="plan.popular ? 'bg-primary hover:brightness-105' : 'bg-gray-200 group-hover:bg-gray-300'" :aria-label="plan.ariaLabel">{{ plan.buttonText }}</NuxtLink>
         </div>
       </div>
     </div>
@@ -41,25 +41,28 @@ const plans = [
   {
     title: 'Retouch & Editing',
     features: ['Basic Editing', 'Advanced Retouching'],
-    link: '#contact',
+    link: '/reservasi',
     buttonText: 'Pilih Paket',
     ariaLabel: 'Pilih Paket Retouch & Editing',
+    action: 'Retouch & Editing',
     popular: false,
   },
   {
     title: 'Fotografi',
     features: ['Foto Produk', 'Beauty Portrait', 'Dokumentasi Bayi', 'Event Photography'],
-    link: '#contact',
+    link: '/reservasi',
     buttonText: 'Pilih Paket',
     ariaLabel: 'Pilih Paket Fotografi',
+    action: 'Event Photography',
     popular: true,
   },
   {
     title: 'Kelas Privat',
     features: ['Kelas Fotografi', 'Kelas Editing Foto'],
-    link: '#contact',
+    link: '/reservasi',
     buttonText: 'Pilih Paket',
     ariaLabel: 'Pilih Paket Kelas Privat',
+    action: 'Kelas Privat',
     popular: false,
   },
 ]

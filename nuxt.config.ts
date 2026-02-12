@@ -92,7 +92,7 @@ export default defineNuxtConfig({
           'Cross-Origin-Opener-Policy': 'same-origin',
           'Cross-Origin-Resource-Policy': 'cross-origin',
           'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
-          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://wa.me; frame-src 'self' https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
+          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://wa.me; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
           'X-DNS-Prefetch-Control': 'on',
           'X-Permitted-Cross-Domain-Policies': 'none',
         },

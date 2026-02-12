@@ -1,6 +1,6 @@
 export interface PortfolioItem {
   id: number
-  cat: 'product' | 'beauty' | 'baby' | 'event' | 'retouch' | 'private-class'
+  cat: 'product' | 'beauty' | 'fashion' | 'baby' | 'event' | 'retouch' | 'private-class'
   img: string
   class: 'tall' | 'wide' | ''
 }
@@ -53,7 +53,7 @@ export const portfolioItems: PortfolioItem[] = [
 const ITEMS_PER_PAGE = 6
 
 export const usePortfolio = () => {
-  const activeFilter = ref<'all' | 'product' | 'beauty' | 'baby' | 'event' | 'retouch' | 'private-class'>('all')
+  const activeFilter = ref<'all' | 'product' | 'beauty' | 'fashion' | 'baby' | 'event' | 'retouch' | 'private-class'>('all')
   const displayedCount = ref(ITEMS_PER_PAGE)
 
   const filteredItems = computed(() => {

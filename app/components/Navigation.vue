@@ -8,14 +8,14 @@
         <div class="text-sm font-medium uppercase tracking-widest">Fotografi</div>
       </div>
       <div class="hidden md:flex gap-4 text-sm font-medium uppercase tracking-widest">
-        <a href="#about" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to About section">Tentang</a>
-        <a href="#services" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Services section">Layanan</a>
-        <a href="#process" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Process section">Alur Kerja</a>
-        <a href="#pricing" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Pricing section">Paket</a>
-        <a href="#portfolio" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Portfolio section">Portofolio</a>
+        <NuxtLink to="/#about" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to About section">Tentang</NuxtLink>
+        <NuxtLink to="/#services" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Services section">Layanan</NuxtLink>
+        <NuxtLink to="/#process" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Process section">Alur Kerja</NuxtLink>
+        <NuxtLink to="/#pricing" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Pricing section">Paket</NuxtLink>
+        <NuxtLink to="/#portfolio" class="text-dark navigation-link hover:text-primary transition px-4 py-2" aria-label="Navigate to Portfolio section">Portofolio</NuxtLink>
       </div>
       <div class="flex items-center gap-4">
-        <a href="#contact" class="hidden md:block bg-primary px-6 py-2 text-sm font-bold uppercase tracking-wider hover:brightness-95 transition" aria-label="Book a photography session">Hubungi Kami</a>
+        <NuxtLink to="/reservasi" class="hidden md:block bg-primary px-6 py-2 text-sm font-bold uppercase tracking-wider hover:brightness-95 transition" aria-label="Book a photography session">Reservasi</NuxtLink>
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
           class="md:hidden p-2"
@@ -35,12 +35,12 @@
     >
       <div v-if="mobileMenuOpen" class="md:hidden bg-white border-t border-gray-100">
         <div class="px-6 py-4 space-y-4">
-          <a href="#about" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to About section">Tentang</a>
-          <a href="#services" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Services section">Layanan</a>
-          <a href="#process" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Process section">Alur Kerja</a>
-          <a href="#pricing" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Pricing section">Paket</a>
-          <a href="#portfolio" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Portfolio section">Portofolio</a>
-          <a href="#contact" class="block bg-primary px-6 py-2 text-sm font-bold uppercase tracking-wider text-dark hover:brightness-95 transition text-center mt-4" @click="mobileMenuOpen = false" aria-label="Book a photography session">Hubungi Kami</a>
+          <NuxtLink to="/#about" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to About section">Tentang</NuxtLink>
+          <NuxtLink to="/#services" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Services section">Layanan</NuxtLink>
+          <NuxtLink to="/#process" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Process section">Alur Kerja</NuxtLink>
+          <NuxtLink to="/#pricing" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Pricing section">Paket</NuxtLink>
+          <NuxtLink to="/#portfolio" class="block text-sm font-medium uppercase tracking-widest text-dark hover:text-primary transition px-4 py-2" @click="mobileMenuOpen = false" aria-label="Navigate to Portfolio section">Portofolio</NuxtLink>
+          <NuxtLink to="/reservasi" class="block bg-primary px-6 py-2 text-sm font-bold uppercase tracking-wider text-dark hover:brightness-95 transition text-center mt-4" @click="mobileMenuOpen = false" aria-label="Book a photography session">Reservasi</NuxtLink>
         </div>
       </div>
     </Transition>

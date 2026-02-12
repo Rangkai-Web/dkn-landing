@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://wa.me/6283105612985?text=Halo, saya tertarik untuk menggunakan layanan fotografi Anda."
+    href="https://wa.me/6287831377755?text=Halo, saya tertarik untuk menggunakan layanan fotografi Anda."
     class="whatsapp-float"
     aria-label="Contact us on WhatsApp"
     target="_blank"

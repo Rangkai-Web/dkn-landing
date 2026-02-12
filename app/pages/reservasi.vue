@@ -1,19 +1,9 @@
 <template>
-  <div>
-    <Navigation />
-    <Hero />
-    <About />
-    <Services />
-    <Process />
-    <Pricing />
-    <Retouching />
-    <PortfolioV2 />
-    <Testimonials />
-    <SocialProof />
-    <Maps />
-    <Footer />
-    <!-- <WhatsAppFloat /> -->
-  </div>
+    <div>
+        <Navigation />
+        <Contact />
+        <Footer />
+    </div>
 </template>
 
 <script setup lang="ts">
