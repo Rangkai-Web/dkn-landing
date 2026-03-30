@@ -1,9 +1,41 @@
 @import "tailwindcss";
 
+/* Local Alegreya Sans Font Faces */
+@font-face {
+  font-family: "alegreyasansR";
+  src: url("../font/alegreya-sans/AlegreyaSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "alegreyasansM";
+  src: url("../font/alegreya-sans/AlegreyaSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "alegreyasansB";
+  src: url("../font/alegreya-sans/AlegreyaSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #1f5e5a;
+  --color-secondary: #2f7f7a;
+  --color-accent: #8fd14f;
+  --color-bg: #f5f7f6;
+  --color-text: #1a1a1a;
+  --color-dark: #1a1a1a;
+}
+
 :root {
-  --primary: #ece03f;
-  --dark: #1a1a1a;
-  --secondary: #2a2a2a;
+  --gradient: linear-gradient(135deg, #1f5e5a, #2f7f7a);
 }
 
 html {
@@ -11,35 +43,54 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--dark);
-  background-color: #fff;
+  font-family: "alegreyasansR", sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Poppins', sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "alegreyasansM", sans-serif;
 }
 
 .bg-primary {
-  background-color: var(--primary);
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
 }
 
 .bg-dark {
-  background-color: var(--dark);
+  background-color: var(--color-dark);
 }
 
 .text-primary {
-  color: var(--primary);
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-accent {
+  color: var(--color-accent);
 }
 
 .border-primary {
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
 .hover\:text-primary:hover {
-  color: var(--primary) !important;
+  color: var(--color-primary) !important;
 }
 
 .hover\:bg-dark:hover {
-  background-color: var(--dark) !important;
+  background-color: var(--color-dark) !important;
 }

@@ -1,166 +1,83 @@
 <template>
   <div>
-    <Navigation />
+    <Header />
     <Hero />
     <About />
-    <Services />
-    <Process />
-    <Pricing />
-    <Retouching />
-    <PortfolioV2 />
-    <Testimonials />
-    <SocialProof />
-    <Maps />
+    <VissionMission />
+    <WhyUs />
+    <Service />
+    <Training />
+    <WhyUs />
+    <Cta />
+    <Contact />
     <Footer />
-    <!-- <WhatsAppFloat /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Professional Photography & Retouching | Asih Angger',
-  description: 'High-end photography services for products, portraits, and life\'s milestones. Professional retouching and commercial photography.',
-  ogTitle: 'Asih Angger - Professional Photography & Retouching',
-  ogDescription: 'High-end photography services for products, portraits, and life\'s milestones.',
-  ogImage: 'https://asihangger.com/icon.png',
-  ogUrl: 'https://asihangger.com',
-  ogType: 'website',
-  ogSiteName: 'Asih Angger',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Asih Angger - Professional Photography & Retouching',
-  twitterDescription: 'High-end photography services for products, portraits, and life\'s milestones.',
-  twitterImage: 'https://asihangger.com/icon.png',
-  keywords: 'photography, retouching, product photography, portrait photography, beauty photography, baby photography, event photography, commercial photography, Jakarta',
-  author: 'Asih Angger',
+  title: "DKN Digital - Pengembangan SDM & Solusi Digital",
+  description:
+    "Mitra pengembangan SDM profesional, unggul, dan berdaya saing. Solusi pelatihan dan pengembangan karir digital terpercaya.",
+  ogTitle: "DKN Digital - Partner Pengembangan SDM Strategis",
+  ogDescription:
+    "Solusi pengembangan SDM profesional untuk menghadapi dinamika dunia kerja.",
+  ogImage: "/favicon.ico",
+  ogUrl: "https://dkn.digital",
+  ogType: "website",
+  ogSiteName: "DKN Digital",
+  twitterCard: "summary_large_image",
+  twitterTitle: "DKN Digital - Pengembangan SDM",
+  twitterDescription:
+    "Mitra pengembangan SDM profesional, unggul, dan berdaya saing.",
+  twitterImage: "/favicon.ico",
+  keywords:
+    "pengembangan sdm, pelatihan kerja, digital marketing, training sdm, dkn digital, jakarta, depok",
+  author: "DKN Digital",
   robots: {
     index: true,
     follow: true,
   },
-  themeColor: '#ece03f',
-})
+  themeColor: "#1F5E5A",
+});
 
 useHead({
   htmlAttrs: {
-    lang: 'en',
+    lang: "en",
   },
   link: [
     {
-      rel: 'canonical',
-      href: 'https://asihangger.com',
+      rel: "canonical",
+      href: "https://asihangger.com",
     },
     {
-      rel: 'alternate',
-      type: 'application/rss+xml',
-      href: 'https://asihangger.com/rss.xml',
+      rel: "alternate",
+      type: "application/rss+xml",
+      href: "https://asihangger.com/rss.xml",
     },
   ],
   script: [
     {
-      type: 'application/ld+json',
+      type: "application/ld+json",
       innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'ProfessionalService',
-        '@id': 'https://asihangger.com',
-        name: 'Asih Angger',
-        alternateName: 'Asih Angger Photography',
-        description: 'High-end photography services for products, portraits, and life\'s milestones. Professional retouching and commercial photography.',
-        url: 'https://asihangger.com',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://asihangger.com/logo.png',
-        },
-        image: {
-          '@type': 'ImageObject',
-          url: 'https://asihangger.com/icon.png',
-        },
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Jl. Margonda Raya',
-          addressLocality: 'Kota Depok',
-          addressRegion: 'Jawa Barat',
-          addressCountry: 'ID',
-        },
-        contactPoint: [
-          {
-            '@type': 'ContactPoint',
-            email: 'asih.angger@gmail.com',
-            contactType: 'Customer Service',
-            areaServed: 'ID',
-            availableLanguage: ['en', 'id'],
-          },
-          {
-            '@type': 'ContactPoint',
-            telephone: '+6287831377755',
-            contactType: 'Customer Service',
-            areaServed: 'ID',
-            availableLanguage: ['en', 'id'],
-          },
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DKN Digital",
+        "url": "https://dkn.digital",
+        "logo": "https://dkn.digital/logo/dkn-logo.jpeg",
+        "description": "Mitra pengembangan SDM profesional, unggul, dan berdaya saing.",
+        "sameAs": [
+          "https://www.instagram.com/dkndigital/"
         ],
-        areaServed: {
-          '@type': 'City',
-          name: 'Jakarta',
-        },
-        serviceType: ['Product Photography', 'Beauty Portrait', 'Baby Documentary', 'Event Coverage', 'Photo Retouching'],
-        priceRange: '$$',
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Photography Services',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Portrait / Solo Photography',
-                description: '2 Hours Session, 10 Retouched Photos, Online Gallery Access',
-                provider: {
-                  '@type': 'Person',
-                  name: 'Asih Angger',
-                },
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Commercial / Brand Photography',
-                description: 'Full Day Session, 25 High-End Retouched, Full Commercial Rights',
-                provider: {
-                  '@type': 'Person',
-                  name: 'Asih Angger',
-                },
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Events / Large Scale Photography',
-                description: 'Ideal for weddings, corporate events, or unique artistic collaborations',
-                provider: {
-                  '@type': 'Person',
-                  name: 'Asih Angger',
-                },
-              },
-            },
-          ],
-        },
-      }),
-    },
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Asih Angger',
-        jobTitle: 'Photographer & Retoucher',
-        url: 'https://asihangger.com',
-        sameAs: [
-          'https://www.instagram.com/asihangger/',
-          'https://www.linkedin.com/in/asihangger/',
-        ],
-        knowsAbout: ['Photography', 'Photo Retouching', 'Product Photography', 'Portrait Photography'],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+6287831377755",
+          "contactType": "customer service",
+          "areaServed": "ID",
+          "availableLanguage": ["id", "en"]
+        }
       }),
     },
   ],
-})
+});
 </script>

@@ -1,27 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
-  devtools: { enabled: process.env.NODE_ENV === 'development' },
+  compatibilityDate: "2025-07-15",
+  devtools: { enabled: process.env.NODE_ENV === "development" },
   modules: [
-    '@nuxt/image',
-    '@nuxt/devtools',
-    '@nuxt/icon',
-    '@nuxt/fonts',
-    '@nuxt/hints',
-    '@nuxt/ui',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/seo',
-    'vue3-carousel-nuxt'
+    "@nuxt/image",
+    "@nuxt/devtools",
+    "@nuxt/icon",
+    "@nuxt/fonts",
+    "@nuxt/hints",
+    "@nuxt/ui",
+    "@nuxtjs/color-mode",
+    "@nuxtjs/seo",
+    "vue3-carousel-nuxt",
   ],
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
     build: {
       cssCodeSplit: true,
-      minify: 'terser',
+      minify: "terser",
       terserOptions: {
         compress: {
           drop_console: true,
@@ -30,34 +28,40 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
   app: {
     head: {
       htmlAttrs: {
-        lang: 'en',
+        lang: "en",
       },
       link: [
-        { rel: 'preconnect', href: 'https://images.unsplash.com', crossorigin: 'anonymous' },
-        { rel: 'dns-prefetch', href: 'https://images.unsplash.com' },
+        {
+          rel: "preconnect",
+          href: "https://images.unsplash.com",
+          crossorigin: "anonymous",
+        },
+        { rel: "dns-prefetch", href: "https://images.unsplash.com" },
+        { rel: "dns-prefetch", href: "https://images.unsplash.com" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
+        },
       ],
     },
   },
   site: {
-    url: 'https://asihangger.com',
-    name: 'Asih Angger',
-    description: 'Asih Angger is a photographer and retoucher who specializes in product photography, portrait photography, beauty photography, baby photography, event photography, and commercial photography.',
-    defaultLocale: 'en',
+    url: "https://dkn.digital",
+    name: "DKN Digital",
+    description: "DKN Digital",
+    defaultLocale: "en",
     indexable: true,
   },
   fonts: {
-    families: [
-      { name: 'Poppins', provider: 'google', weights: ['400', '600', '700'] },
-      { name: 'Inter', provider: 'google', weights: ['300', '400', '500'] },
-    ],
+    families: [],
   },
   image: {
     quality: 80,
-    format: ['webp', 'avif'],
+    format: ["webp", "avif"],
     screens: {
       xs: 320,
       sm: 640,
@@ -68,33 +72,36 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/': {
+    "/": {
       headers: {
-        'Cache-Control': 'public, max-age=3600, must-revalidate',
+        "Cache-Control": "public, max-age=3600, must-revalidate",
       },
     },
-    '/**': {
+    "/**": {
       headers: {
-        'Cache-Control': 'public, max-age=31536000, immutable',
+        "Cache-Control": "public, max-age=31536000, immutable",
       },
     },
   },
   nitro: {
     compressPublicAssets: true,
     routeRules: {
-      '/**': {
+      "/**": {
         headers: {
-          'X-Content-Type-Options': 'nosniff',
-          'X-Frame-Options': 'DENY',
-          'X-XSS-Protection': '1; mode=block',
-          'Referrer-Policy': 'strict-origin-when-cross-origin',
-          'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
-          'Cross-Origin-Opener-Policy': 'same-origin',
-          'Cross-Origin-Resource-Policy': 'cross-origin',
-          'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
-          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://wa.me; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
-          'X-DNS-Prefetch-Control': 'on',
-          'X-Permitted-Cross-Domain-Policies': 'none',
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "X-XSS-Protection": "1; mode=block",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "Permissions-Policy":
+            "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          "Cross-Origin-Opener-Policy": "same-origin",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "Strict-Transport-Security":
+            "max-age=31536000; includeSubDomains; preload",
+          "Content-Security-Policy":
+            "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://wa.me; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
+          "X-DNS-Prefetch-Control": "on",
+          "X-Permitted-Cross-Domain-Policies": "none",
         },
       },
     },
@@ -102,4 +109,4 @@ export default defineNuxtConfig({
   experimental: {
     payloadExtraction: false,
   },
-})
+});
