@@ -168,6 +168,7 @@ const quickLinks = [
   { name: "Training", href: "#training" },
   { name: "Why Choose Us", href: "#why-us" },
   { name: "Products", href: "#products" },
+  { name: "Testimoni", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
 

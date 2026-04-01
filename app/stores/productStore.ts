@@ -7,14 +7,12 @@ export interface IProduct {
   description: string;
   image: string;
   link: string;
-  category: string;
   price: string;
 }
 
 export const useProductStore = defineStore("product", () => {
   // State
   const products = ref<IProduct[]>([
-    // === E-Course ===
     {
       id: 1,
       title: "E-Course: General Banking Level 4",
@@ -23,7 +21,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 350.000",
     },
     {
@@ -34,7 +31,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 499.000",
     },
     {
@@ -45,7 +41,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 299.000",
     },
     {
@@ -56,7 +51,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 275.000",
     },
     {
@@ -67,7 +61,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 425.000",
     },
     {
@@ -78,7 +71,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 199.000",
     },
     {
@@ -89,7 +81,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 375.000",
     },
     {
@@ -100,11 +91,8 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Course",
       price: "Rp 249.000",
     },
-
-    // === E-Book ===
     {
       id: 9,
       title: "E-Book: Panduan Lengkap General Banking",
@@ -113,7 +101,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 89.000",
     },
     {
@@ -124,7 +111,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 75.000",
     },
     {
@@ -135,7 +121,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 99.000",
     },
     {
@@ -146,7 +131,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1553729459-uj7t8h6c4d83?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 65.000",
     },
     {
@@ -157,7 +141,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 85.000",
     },
     {
@@ -168,7 +151,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 120.000",
     },
     {
@@ -179,7 +161,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 95.000",
     },
     {
@@ -190,11 +171,8 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "E-Book",
       price: "Rp 79.000",
     },
-
-    // === Aksesoris ===
     {
       id: 17,
       title: "Tumbler DKN Digital Premium",
@@ -203,7 +181,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 150.000",
     },
     {
@@ -214,7 +191,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 85.000",
     },
     {
@@ -225,7 +201,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 120.000",
     },
     {
@@ -236,7 +211,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 45.000",
     },
     {
@@ -247,7 +221,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 75.000",
     },
     {
@@ -258,7 +231,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 185.000",
     },
     {
@@ -269,7 +241,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 95.000",
     },
     {
@@ -280,7 +251,6 @@ export const useProductStore = defineStore("product", () => {
       image:
         "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
-      category: "Aksesoris",
       price: "Rp 110.000",
     },
   ]);

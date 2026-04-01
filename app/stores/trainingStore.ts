@@ -42,7 +42,7 @@ export const useTrainingStore = defineStore("training", () => {
       description:
         "Pelatihan lanjutan penanganan uang tunai untuk tingkat manajerial.",
       image:
-        "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1518458028785-8f3d8b5e4c80?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
       category: "Core Banking",
     },
