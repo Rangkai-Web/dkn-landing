@@ -1,7 +1,7 @@
 <template>
-  <section id="contact" class="py-24 px-6 max-w-7xl mx-auto">
+  <section id="contact" class="relative py-24 px-6 bg-primary/5">
     <div
-      class="bg-white rounded-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 overflow-hidden grid lg:grid-cols-2"
+      class="bg-white max-w-7xl mx-auto rounded-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-slate-100 overflow-hidden grid lg:grid-cols-2"
     >
       <div class="p-10 md:p-16 flex flex-col justify-center">
         <span

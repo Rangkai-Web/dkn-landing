@@ -4,12 +4,13 @@
     <Hero />
     <About />
     <VissionMission />
-    <WhyUs />
+    <CoreValues />
     <Service />
     <Training />
+    <WhyUs />
     <Cta />
-    <Contact />
     <Product />
+    <Contact />
     <Footer />
   </div>
 </template>

@@ -1,8 +1,5 @@
 <template>
-  <section
-    id="why-us"
-    class="relative py-32 px-6 overflow-hidden bg-background"
-  >
+  <section id="why-us" class="relative py-32 px-6 overflow-hidden bg-primary/5">
     <!-- Background SVG Pattern -->
     <SvgIconGridPattern patternId="whyus-grid" />
 
@@ -26,7 +23,7 @@
       </div>
 
       <!-- Why Choose Us Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
         <div
           v-for="(item, idx) in whyChooseUsItems"
           :key="idx"
@@ -34,7 +31,7 @@
         >
           <!-- Number watermark -->
           <span
-            class="absolute top-4 right-5 text-7xl font-black text-primary/4 leading-none select-none group-hover:text-primary/8 transition-colors duration-500"
+            class="absolute top-4 right-5 text-7xl font-black text-primary/20 leading-none select-none group-hover:text-primary/40 transition-colors duration-500"
           >
             {{ String(idx + 1).padStart(2, "0") }}
           </span>
@@ -59,7 +56,7 @@
       <div class="grid gap-8">
         <!-- Legalitas Card -->
         <div
-          class="relative bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-10 md:p-12 shadow-xl shadow-primary/5 overflow-hidden"
+          class="relative bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-6 md:p-8 shadow-xl shadow-primary/5 overflow-hidden"
         >
           <!-- Decorative corner SVG -->
           <SvgIconNestedSquare

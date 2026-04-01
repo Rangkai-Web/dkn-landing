@@ -54,11 +54,11 @@
       </div>
 
       <!-- Services Grid: Top Row (3 cards) -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         <div
           v-for="(srv, idx) in services.slice(0, 3)"
           :key="idx"
-          class="group relative bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur-md border border-white/10 hover:border-accent/40 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2"
+          class="group relative bg-white/[0.07] border border-white/10 hover:border-accent/40 rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2"
         >
           <!-- Hover glow -->
           <div
@@ -67,9 +67,9 @@
 
           <div class="relative z-10">
             <div
-              class="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center text-accent mb-8 group-hover:bg-accent/20 group-hover:border-accent/30 transition-all duration-500"
+              class="absolute -top-14 -left-14 w-12 h-12 rounded-full bg-primary border border-white/10 flex items-center justify-center text-accent group-hover:bg-accent! group-hover:text-primary! group-hover:border-accent/30 transition-all duration-500"
             >
-              <Icon :name="srv.icon" size="32" />
+              <Icon :name="srv.icon" size="30" />
             </div>
             <h3
               class="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-accent transition-colors duration-300"
@@ -90,7 +90,7 @@
         <div
           v-for="(srv, idx) in services.slice(3)"
           :key="idx + 3"
-          class="group relative bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur-md border border-white/10 hover:border-accent/40 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2"
+          class="group relative bg-white/[0.07] border border-white/10 hover:border-accent/40 rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2"
         >
           <!-- Hover glow -->
           <div
@@ -99,9 +99,9 @@
 
           <div class="relative z-10">
             <div
-              class="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center text-accent mb-8 group-hover:bg-accent/20 group-hover:border-accent/30 transition-all duration-500"
+              class="absolute -top-14 -left-14 w-12 h-12 rounded-full bg-primary border border-white/10 flex items-center justify-center text-accent group-hover:bg-accent! group-hover:text-primary! group-hover:border-accent/30 transition-all duration-500"
             >
-              <Icon :name="srv.icon" size="32" />
+              <Icon :name="srv.icon" size="30" />
             </div>
             <h3
               class="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-accent transition-colors duration-300"
@@ -134,18 +134,18 @@ const services = [
   },
   {
     icon: "lucide:heart-handshake",
-    title: "Employee Counseling",
+    title: "Employee Counseling & Development Support",
     desc: "Layanan pendukung SDM dalam menghadapi tantangan kerja dan menjaga keseimbangan mental.",
   },
   {
     icon: "lucide:users",
-    title: "Team Building",
+    title: "Team Building & Capacity Building",
     desc: "Program peningkatan kerja sama, komunikasi, kepemimpinan, dan efektivitas tim secara menyeluruh.",
   },
   {
     icon: "lucide:building",
     title: "Advisory Services",
-    desc: "Pendampingan BPD untuk Manajemen Risiko, Perkreditan, dan transformasi Digital Banking.",
+    desc: "Pendampingan bagi Bank Pembangunan Daerah (BPD) untuk Manajemen Risiko, Perkreditan, dan transformasi Digital Banking.",
   },
 ];
 </script>

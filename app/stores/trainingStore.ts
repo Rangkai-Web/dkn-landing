@@ -42,7 +42,7 @@ export const useTrainingStore = defineStore("training", () => {
       description:
         "Pelatihan lanjutan penanganan uang tunai untuk tingkat manajerial.",
       image:
-        "https://images.unsplash.com/photo-1518458028785-8f3d8b5e4c80?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
       category: "Core Banking",
     },
@@ -175,8 +175,7 @@ export const useTrainingStore = defineStore("training", () => {
     {
       id: 16,
       title: "Business Case Writing for Decision Making",
-      description:
-        "Keterampilan menyusun business case yang persuasif.",
+      description: "Keterampilan menyusun business case yang persuasif.",
       image:
         "https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",
@@ -187,8 +186,7 @@ export const useTrainingStore = defineStore("training", () => {
     {
       id: 17,
       title: "Digital Marketing",
-      description:
-        "Kuasai strategi pemasaran digital dari dasar hingga mahir.",
+      description: "Kuasai strategi pemasaran digital dari dasar hingga mahir.",
       image:
         "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&auto=format&fit=crop&q=80",
       link: "https://dkn.moodle.com",

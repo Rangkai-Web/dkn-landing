@@ -40,12 +40,12 @@
         </div>
 
         <div
-          class="max-w-4xl mx-auto bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-[2.5rem] p-10 md:p-16"
+          class="max-w-4xl mx-auto bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-[2.5rem] p-8 md:p-12"
         >
           <div
-            class="w-20 h-20 bg-accent/20 rounded-3xl flex items-center justify-center text-accent mx-auto mb-8"
+            class="w-16 h-16 bg-accent/20 rounded-3xl flex items-center justify-center text-accent mx-auto mb-8"
           >
-            <Icon name="lucide:eye" size="40" />
+            <Icon name="lucide:award" size="40" />
           </div>
           <h3
             class="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-[1.15] tracking-tight"
@@ -77,7 +77,7 @@
           <div
             v-for="(mission, idx) in missions"
             :key="idx"
-            class="group relative bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur-md border border-white/10 hover:border-accent/40 rounded-3xl p-8 md:p-10 transition-all duration-500 hover:-translate-y-1"
+            class="group relative bg-white/[0.07] hover:bg-white/[0.14] backdrop-blur-md border border-white/10 hover:border-accent/40 rounded-3xl p-4 md:p-6 transition-all duration-500 hover:-translate-y-1"
           >
             <!-- Number badge -->
             <div
