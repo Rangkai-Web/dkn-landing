@@ -19,10 +19,11 @@ export const useTestimonialStore = defineStore("testimonial", () => {
     try {
       const config = useRuntimeConfig();
       const baseUrl = config.public.apiBaseUrl;
-      console.log("baseUrl", baseUrl);
+      console.log("Fetching testimonials from:", `${baseUrl}testimonials`);
 
-      // Ensure the endpoint is 'testimonials'
-      const data = await $fetch<any>(`${baseUrl}testimonials`);
+      const data = await $fetch<any>("testimonials", {
+        baseURL: baseUrl,
+      });
 
       if (data) {
         testimonials.value = data?.data?.map((item: any) => ({

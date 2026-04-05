@@ -39,7 +39,9 @@ export const useProfileStore = defineStore("profile", () => {
       const config = useRuntimeConfig();
       const baseUrl = config.public.apiBaseUrl;
 
-      const data = await $fetch<any>(`${baseUrl}company-profile`);
+      const data = await $fetch<any>("company-profile", {
+        baseURL: baseUrl,
+      });
 
       if (data && data.data) {
         profile.value = data.data;

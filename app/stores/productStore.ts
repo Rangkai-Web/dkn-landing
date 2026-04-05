@@ -27,7 +27,9 @@ export const useProductStore = defineStore("product", () => {
       const config = useRuntimeConfig();
       const baseUrl = config.public.apiBaseUrl;
 
-      const data = await $fetch<any>(`${baseUrl}products`);
+      const data = await $fetch<any>("products", {
+        baseURL: baseUrl,
+      });
 
       if (data) {
         products.value = data?.data?.map((item: any) => ({

@@ -42,7 +42,9 @@ export const useTrainingStore = defineStore("training", () => {
       const config = useRuntimeConfig();
       const baseUrl = config.public.apiBaseUrl;
 
-      const data = await $fetch<any>(`${baseUrl}trainings`);
+      const data = await $fetch<any>("trainings", {
+        baseURL: baseUrl,
+      });
 
       if (data) {
         courses.value = data?.data?.map((item: any) => ({

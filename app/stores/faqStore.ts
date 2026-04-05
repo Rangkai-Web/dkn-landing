@@ -22,7 +22,9 @@ export const useFaqStore = defineStore("faq", () => {
       const config = useRuntimeConfig();
       const baseUrl = config.public.apiBaseUrl;
 
-      const data = await $fetch<any>(`${baseUrl}faqs`);
+      const data = await $fetch<any>("faqs", {
+        baseURL: baseUrl,
+      });
 
       if (data && data.data) {
         faqs.value = data.data.map((item: any) => ({
