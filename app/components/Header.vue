@@ -35,7 +35,7 @@
 
       <div class="hidden lg:flex items-center">
         <a
-          href="https://dkn.moodle.com"
+          href="https://lms.dkn.digital/login/index.php"
           target="_blank"
           rel="noreferrer"
           :class="[
@@ -82,7 +82,7 @@
     </a>
     <hr class="border-slate-300 my-2" />
     <a
-      href="https://dkn.moodle.com"
+      href="https://lms.dkn.digital/login/index.php"
       target="_blank"
       rel="noreferrer"
       class="bg-primary text-white px-6 py-3.5 rounded-xl font-bold text-center flex items-center justify-center gap-2"

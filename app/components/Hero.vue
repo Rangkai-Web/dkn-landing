@@ -64,7 +64,7 @@
                     <Icon name="lucide:chevron-right" size="24" class="ml-2" />
                   </a>
                   <a
-                    href="https://dkn.moodle.com"
+                    href="https://lms.dkn.digital/login/index.php"
                     target="_blank"
                     rel="noreferrer"
                     class="flex items-center justify-center bg-secondary backdrop-blur-md text-white px-10 py-5 rounded-full font-black text-lg hover:bg-primary border border-white/20 hover:scale-110 transition-all duration-300 shadow-2xl uppercase tracking-wider"
@@ -82,12 +82,18 @@
           <Pagination />
         </template>
       </Carousel>
-      
+
       <!-- SSR Fallback -->
       <template #fallback>
-        <div class="w-full h-screen bg-primary/20 animate-pulse flex items-center justify-center">
+        <div
+          class="w-full h-screen bg-primary/20 animate-pulse flex items-center justify-center"
+        >
           <div class="text-center">
-            <h1 class="text-4xl md:text-6xl font-black text-white/50 mb-4 opacity-0">DKN Digital</h1>
+            <h1
+              class="text-4xl md:text-6xl font-black text-white/50 mb-4 opacity-0"
+            >
+              DKN Digital
+            </h1>
           </div>
         </div>
       </template>

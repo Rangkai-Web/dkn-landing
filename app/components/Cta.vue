@@ -60,7 +60,7 @@
         keterampilan mereka bersama DKN Digital.
       </p>
       <a
-        href="https://dkn.moodle.com"
+        href="https://lms.dkn.digital/login/index.php"
         target="_blank"
         rel="noreferrer"
         class="flex items-center justify-center bg-accent text-primary px-12 py-5 rounded-full font-black text-lg hover:scale-110 transition-all duration-300 shadow-2xl shadow-accent/30 uppercase tracking-wider"

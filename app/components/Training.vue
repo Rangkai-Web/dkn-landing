@@ -145,7 +145,7 @@
             </p>
           </div>
           <a
-            href="https://dkn.moodle.com"
+            href="https://lms.dkn.digital/login/index.php"
             target="_blank"
             rel="noreferrer"
             class="flex items-center justify-center bg-white text-primary px-10 py-5 rounded-full font-black text-lg hover:bg-slate-100 hover:scale-110 transition-all duration-300 shadow-2xl uppercase tracking-wider shrink-0"

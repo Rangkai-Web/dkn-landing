@@ -52,7 +52,7 @@ export const useTrainingStore = defineStore("training", () => {
           title: item.title,
           description: item.description,
           image: item.image, // Map API image field
-          // link: item.link || "https://dkn.moodle.com",
+          // link: item.link || "https://lms.dkn.digital/login/index.php",
           category: item.category,
         }));
 

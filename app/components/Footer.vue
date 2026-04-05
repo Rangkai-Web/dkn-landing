@@ -138,7 +138,7 @@
               Moodle.
             </p>
             <a
-              href="https://dkn.moodle.com"
+              href="https://lms.dkn.digital/login/index.php"
               target="_blank"
               rel="noreferrer"
               class="inline-flex items-center gap-2 bg-accent text-primary px-5 py-2.5 rounded-full font-black text-sm hover:scale-105 transition-all duration-300 shadow-lg shadow-accent/20"
