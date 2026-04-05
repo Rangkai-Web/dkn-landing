@@ -29,7 +29,10 @@
       </div>
 
       <!-- Category Tabs -->
-      <div class="flex justify-center mb-12">
+      <div
+        v-if="!isLoading && categories.length > 0"
+        class="flex justify-center mb-12"
+      >
         <div
           class="inline-flex flex-wrap justify-center gap-3 p-2 bg-white/60 backdrop-blur-sm border border-white/80 rounded-2xl shadow-lg shadow-primary/5"
         >
@@ -49,66 +52,66 @@
         </div>
       </div>
 
-      <!-- Course List -->
+      <!-- Course List or Loading -->
       <div
         class="bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl p-8 md:p-12 shadow-xl shadow-primary/5 mb-16"
       >
-        <div class="flex justify-center flex-col items-center gap-2 mb-10">
-          <div
-            class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary"
-          >
-            <Icon name="lucide:book-open" size="24" />
-          </div>
-          <h3 class="text-2xl font-black text-text tracking-tight">
-            {{ activeTab }}
-          </h3>
-          <!-- <p class="text-slate-500 text-sm font-medium">
-            {{ activeCourseCount }} program tersedia
-          </p> -->
+        <div v-if="isLoading" class="flex justify-center items-center py-20">
+          <SvgIconLoading />
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div
-            v-for="course in filteredCourses"
-            :key="course.id"
-            class="group relative bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl overflow-hidden shadow-xl shadow-primary/5 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 flex flex-col"
-          >
-            <!-- Image -->
-            <div class="relative h-48 overflow-hidden">
-              <NuxtImg
-                :src="course.image"
-                :alt="course.title"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                loading="lazy"
-              />
-              <div
-                class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"
-              ></div>
+        <template v-else-if="filteredCourses.length > 0">
+          <div class="flex justify-center flex-col items-center gap-2 mb-10">
+            <div
+              class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary"
+            >
+              <Icon name="lucide:book-open" size="24" />
             </div>
+            <h3 class="text-2xl font-black text-text tracking-tight uppercase">
+              {{ activeTab }}
+            </h3>
+          </div>
 
-            <!-- Content -->
-            <div class="p-6 flex flex-col flex-1">
-              <h3
-                class="text-lg font-black text-text tracking-tight mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2"
-              >
-                {{ course.title }}
-              </h3>
-              <p
-                class="text-slate-500 text-sm leading-relaxed font-medium mb-6 line-clamp-3 flex-1"
-              >
-                {{ course.description }}
-              </p>
-              <!-- <a
-                :href="course.link"
-                target="_blank"
-                rel="noreferrer"
-                class="inline-flex items-center justify-center gap-2 bg-primary/10 text-primary px-5 py-3 rounded-xl font-black text-sm hover:bg-primary hover:text-white! transition-all duration-300 w-full mt-auto"
-              >
-                Akses Materi
-                <Icon name="lucide:external-link" size="16" />
-              </a> -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div
+              v-for="course in filteredCourses"
+              :key="course.id"
+              class="group relative bg-white/60 backdrop-blur-sm border border-white/80 rounded-3xl overflow-hidden shadow-xl shadow-primary/5 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 flex flex-col"
+            >
+              <!-- Image -->
+              <div class="relative h-48 overflow-hidden">
+                <NuxtImg
+                  :src="course.image || '/img/others/placeholder.webp'"
+                  :alt="course.title"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"
+                ></div>
+              </div>
+
+              <!-- Content -->
+              <div class="p-6 flex flex-col flex-1">
+                <h3
+                  class="text-lg font-black text-text tracking-tight mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2"
+                >
+                  {{ course.title }}
+                </h3>
+                <p
+                  class="text-slate-500 text-sm leading-relaxed font-medium mb-6 line-clamp-3 flex-1"
+                >
+                  {{ course.description }}
+                </p>
+              </div>
             </div>
           </div>
+        </template>
+
+        <div v-else class="text-center py-20">
+          <p class="text-slate-500 font-medium">
+            Belum ada program pelatihan di kategori ini.
+          </p>
         </div>
       </div>
 
@@ -161,9 +164,19 @@ import { storeToRefs } from "pinia";
 import { useTrainingStore } from "~/stores/trainingStore";
 
 const store = useTrainingStore();
-const { activeTab, categories, filteredCourses, activeCourseCount } =
-  storeToRefs(store);
-const { setActiveTab } = store;
+const {
+  activeTab,
+  categories,
+  filteredCourses,
+  activeCourseCount,
+  isLoading,
+  error,
+} = storeToRefs(store);
+const { setActiveTab, fetchTrainings } = store;
+
+onMounted(() => {
+  fetchTrainings();
+});
 </script>
 
 <style scoped></style>

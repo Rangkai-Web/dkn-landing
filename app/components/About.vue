@@ -72,10 +72,10 @@
 
           <!-- Image Container -->
           <div
-            class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-auto lg:h-[650px] transform group-hover:scale-[1.01] transition-transform duration-700"
+            class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl aspect-4/5 lg:aspect-auto lg:h-[650px] transform group-hover:scale-[1.01] transition-transform duration-700"
           >
             <NuxtImg
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              src="/img/others/about.webp"
               alt="Training Session"
               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               loading="lazy"

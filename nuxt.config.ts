@@ -2,6 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  ssr: true,
   compatibilityDate: "2025-07-15",
   devtools: { enabled: process.env.NODE_ENV === "development" },
   modules: [
@@ -63,6 +64,7 @@ export default defineNuxtConfig({
   image: {
     quality: 80,
     format: ["webp", "avif"],
+    domains: ["127.0.0.1:8000", "panel.dkn.digital"],
     screens: {
       xs: 320,
       sm: 640,
@@ -70,6 +72,11 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       xxl: 1536,
+    },
+  },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: process.env.API_BASE_URL,
     },
   },
   routeRules: {
@@ -100,7 +107,7 @@ export default defineNuxtConfig({
           "Strict-Transport-Security":
             "max-age=31536000; includeSubDomains; preload",
           "Content-Security-Policy":
-            "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://wa.me; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
+            "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: http://127.0.0.1:8000 https://panel.dkn.digital; connect-src 'self' https://wa.me http://127.0.0.1:8000 https://panel.dkn.digital https://api.iconify.design; frame-src 'self' https://www.google.com https://maps.google.com https://calendar.google.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
           "X-DNS-Prefetch-Control": "on",
           "X-Permitted-Cross-Domain-Policies": "none",
         },

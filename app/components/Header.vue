@@ -11,7 +11,7 @@
       ]"
     >
       <NuxtImg
-        src="/logo/dkn-logo.webp"
+        :src="profile?.logo_url || '/logo/dkn-logo.webp'"
         alt="Logo DKN"
         class="w-12 h-12 rounded-lg"
       />
@@ -93,7 +93,12 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+import { useProfileStore } from "~/stores/profileStore";
 import { ref, onMounted, onUnmounted } from "vue";
+
+const store = useProfileStore();
+const { profile, isLoading, error } = storeToRefs(store);
 
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
@@ -113,6 +118,7 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
+  handleScroll();
   window.addEventListener("scroll", handleScroll);
 });
 

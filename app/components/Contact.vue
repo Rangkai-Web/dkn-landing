@@ -21,7 +21,11 @@
             </div>
             <div>
               <h4 class="text-sm font-bold text-slate-400 mb-1">Phone</h4>
-              <p class="text-xl font-bold text-[#0F172A]">+62 823-4342-4071</p>
+              <p class="text-xl font-bold text-[#0F172A]">
+                {{
+                  "+" + profile?.contact?.whatsapp_number || "+62 823-4342-4071"
+                }}
+              </p>
             </div>
           </div>
           <div class="flex items-center gap-5">
@@ -33,7 +37,7 @@
             <div>
               <h4 class="text-sm font-bold text-slate-400 mb-1">Email</h4>
               <p class="text-lg font-bold text-[#0F172A] break-all">
-                info@dkn.digital
+                {{ profile?.contact?.email || "info@dkn.digital" }}
               </p>
             </div>
           </div>
@@ -46,15 +50,17 @@
             <div>
               <h4 class="text-sm font-bold text-slate-400 mb-1">Address</h4>
               <p class="font-medium text-[#0F172A] leading-relaxed">
-                Jl. Sono No. 18 RT 012 RW 002, Bungur, Senen, Jakarta Pusat, DKI
-                Jakarta
+                {{
+                  profile?.contact?.address ||
+                  "Jl. Sono No. 18 RT 012 RW 002, Bungur, Senen, Jakarta Pusat, DKI Jakarta"
+                }}
               </p>
             </div>
           </div>
         </div>
         <div class="flex flex-col md:flex-row gap-4 mt-8">
           <a
-            href="http://wa.me/6282343424071"
+            :href="`http://wa.me/${profile?.contact?.whatsapp_number || '6282343424071'}`"
             target="_blank"
             rel="noreferrer"
             class="flex-1 bg-primary text-white px-6 py-3.5 rounded-full font-bold text-center flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
@@ -63,7 +69,10 @@
             <Icon name="lucide:phone" size="18" />
           </a>
           <a
-            href="https://www.google.com/maps/dir/?api=1&destination=Jl.%20Sono%20No.18%2C%20RT.6%2FRW.8%2C%20Bungur%2C%20Kec.%20Senen%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010460"
+            :href="
+              profile?.contact?.google_maps_directions ||
+              'https://www.google.com/maps/dir/?api=1&destination=Jl.%20Sono%20No.18%2C%20RT.6%2FRW.8%2C%20Bungur%2C%20Kec.%20Senen%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010460'
+            "
             target="_blank"
             rel="noreferrer"
             class="flex-1 bg-primary text-white px-6 py-3.5 rounded-full font-bold text-center flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300"
@@ -76,7 +85,10 @@
 
       <div class="h-[400px] lg:h-auto bg-slate-200">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4023.5222368646246!2d106.84857577508069!3d-6.169917960463763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5b18fbbb5d5%3A0x7451adc44b67af87!2sJl.%20Sono%20No.18%2C%20RT.6%2FRW.8%2C%20Bungur%2C%20Kec.%20Senen%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010460!5e1!3m2!1sid!2sid!4v1774927577245!5m2!1sid!2sid"
+          :src="
+            profile?.contact?.google_maps_url ||
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4023.5222368646246!2d106.84857577508069!3d-6.169917960463763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5b18fbbb5d5%3A0x7451adc44b67af87!2sJl.%20Sono%20No.18%2C%20RT.6%2FRW.8%2C%20Bungur%2C%20Kec.%20Senen%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010460!5e1!3m2!1id!2sid!4v1774927577245!5m2!1sid!2sid'
+          "
           width="100%"
           height="100%"
           style="border: 0"
@@ -89,3 +101,17 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { useProfileStore } from "~/stores/profileStore";
+
+const store = useProfileStore();
+const { profile, isLoading, error } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchProfile();
+});
+</script>
+
+<style scoped></style>

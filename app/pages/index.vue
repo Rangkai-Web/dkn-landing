@@ -12,6 +12,7 @@
     <Product />
     <Testimoni />
     <Contact />
+    <Faq />
     <Footer />
   </div>
 </template>

@@ -65,48 +65,67 @@
       </div>
 
       <!-- Carousel Container -->
-      <div class="relative px-2 md:px-12">
-        <Carousel v-bind="carouselConfig" class="testimonials-carousel h-full">
-          <Slide v-for="(testimonial, index) in testimonials" :key="index">
-            <div
-              class="group h-full px-2 py-8 transition-transform duration-300"
-            >
+      <div v-if="isLoading" class="flex justify-center items-center py-24">
+        <SvgIconLoading />
+      </div>
+
+      <div v-else-if="testimonials.length > 0" class="relative px-2 md:px-12">
+        <ClientOnly>
+          <Carousel
+            v-bind="carouselConfig"
+            class="testimonials-carousel h-full"
+          >
+            <Slide v-for="(testimonial, index) in testimonials" :key="index">
               <div
-                class="testimonial-card relative flex flex-col justify-center items-center bg-primary/50! backdrop-blur-xl p-4 shadow-xl shadow-primary/5 group-hover:shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
+                class="group h-full px-2 py-8 transition-transform duration-300"
               >
-                <!-- Decorative SVG on Card -->
-                <SvgIconDashedCircle
-                  class="text-primary"
-                  :size="100"
-                  position-class="absolute -top-6 -left-6 opacity-[0.03] transition-opacity duration-500 group-hover:opacity-[0.08] pointer-events-none"
-                />
-
-                <NuxtImg
-                  :src="testimonial.img"
-                  :alt="`${testimonial.title} - DKN Digital`"
-                  class="w-full h-fit object-contain rounded-2xl select-none"
-                  draggable="false"
-                  loading="lazy"
-                  format="webp"
-                  quality="85"
-                />
-
-                <!-- Bottom decoration -->
                 <div
-                  class="absolute bottom-6 right-8 flex gap-1 opacity-20 group-hover:opacity-100 transition-opacity duration-500"
+                  class="testimonial-card relative flex flex-col justify-center items-center bg-primary/50! backdrop-blur-xl p-4 shadow-xl shadow-primary/5 group-hover:shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
                 >
-                  <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                  <div class="w-8 h-1.5 rounded-full bg-primary/40"></div>
+                  <!-- Decorative SVG on Card -->
+                  <SvgIconDashedCircle
+                    class="text-primary"
+                    :size="100"
+                    position-class="absolute -top-6 -left-6 opacity-[0.03] transition-opacity duration-500 group-hover:opacity-[0.08] pointer-events-none"
+                  />
+
+                  <NuxtImg
+                    :src="testimonial.img || '/img/others/placeholder.webp'"
+                    :alt="`${testimonial.title} - DKN Digital`"
+                    class="w-full h-fit object-contain rounded-2xl select-none"
+                    draggable="false"
+                    loading="lazy"
+                    format="webp"
+                    quality="85"
+                  />
+
+                  <!-- Bottom decoration -->
+                  <div
+                    class="absolute bottom-6 right-8 flex gap-1 opacity-20 group-hover:opacity-100 transition-opacity duration-500"
+                  >
+                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                    <div class="w-8 h-1.5 rounded-full bg-primary/40"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Slide>
+            </Slide>
 
-          <template #addons>
-            <Navigation />
-            <Pagination />
+            <template #addons>
+              <Navigation />
+              <Pagination />
+            </template>
+          </Carousel>
+
+          <template #fallback>
+            <div class="flex justify-center items-center py-24">
+              <SvgIconLoading />
+            </div>
           </template>
-        </Carousel>
+        </ClientOnly>
+      </div>
+
+      <div v-else class="text-center py-24">
+        <p class="text-white/60">Belum ada testimoni.</p>
       </div>
     </div>
   </section>
@@ -114,21 +133,15 @@
 
 <script setup lang="ts">
 import "vue3-carousel/dist/carousel.css";
+import { storeToRefs } from "pinia";
+import { useTestimonialStore } from "~/stores/testimonialStore";
 
-const testimonials = [
-  {
-    img: "/img/testimoni/testimoni1.jpeg",
-    title: "Testimoni 1",
-  },
-  {
-    img: "/img/testimoni/testimoni1.jpeg",
-    title: "Testimoni 2",
-  },
-  {
-    img: "/img/testimoni/testimoni1.jpeg",
-    title: "Testimoni 3",
-  },
-];
+const store = useTestimonialStore();
+const { testimonials, isLoading, error } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchTestimonials();
+});
 
 const carouselConfig = {
   itemsToShow: 1,

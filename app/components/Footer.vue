@@ -25,32 +25,35 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <!-- Main Footer Grid -->
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6 mb-16"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6 mb-10"
       >
         <!-- Brand Column -->
         <div class="lg:col-span-1">
           <div class="flex items-center gap-3 mb-6">
             <NuxtImg
-              src="/logo/dkn-logo.webp"
+              :src="profile?.logo_url || '/logo/dkn-logo.webp'"
               alt="Logo DKN"
               class="w-12 h-12 rounded-xl"
             />
             <span class="font-black text-2xl text-white tracking-tighter">
-              DKN<span class="text-accent">.</span>
+              {{ profile?.site_name || "DKN"
+              }}<span class="text-accent">.</span>
             </span>
           </div>
           <p
             class="text-white/40 text-sm leading-relaxed font-medium mb-8 max-w-xs"
           >
-            Mitra pengembangan sumber daya manusia yang profesional, unggul, dan
-            berdaya saing. Top learning experiences that create more talent.
+            {{
+              profile?.site_description ||
+              "Mitra pengembangan sumber daya manusia yang profesional, unggul, dan berdaya saing. Top learning experiences that create more talent."
+            }}
           </p>
           <!-- Social Icons -->
           <div class="flex gap-3">
             <a
-              v-for="social in socials"
-              :key="social.name"
-              :href="social.href"
+              v-for="social in profile?.social_media || socials"
+              :key="social.platform"
+              :href="social.url"
               target="_blank"
               rel="noreferrer"
               class="w-10 h-10 rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center text-white/40 hover:bg-accent hover:text-primary hover:border-accent transition-all duration-300"
@@ -91,7 +94,7 @@
           </h4>
           <ul class="space-y-5">
             <li
-              v-for="contact in contactInfo"
+              v-for="contact in mappedContactInfo"
               :key="contact.label"
               class="flex items-start gap-3"
             >
@@ -152,7 +155,8 @@
         class="flex flex-col md:flex-row justify-center items-center pt-8 border-t border-white/10"
       >
         <p class="text-white/30 text-sm mb-4 md:mb-0 font-medium">
-          © {{ new Date().getFullYear() }} PT Dayaguna Kompetensi Nusantara. All
+          © {{ new Date().getFullYear() }}
+          {{ profile?.site_name || "PT Dayaguna Kompetensi Nusantara" }}. All
           rights reserved.
         </p>
       </div>
@@ -160,7 +164,17 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { useProfileStore } from "~/stores/profileStore";
+
+const store = useProfileStore();
+const { profile, isLoading, error } = storeToRefs(store);
+
+onMounted(() => {
+  store.fetchProfile();
+});
+
 const quickLinks = [
   { name: "Home", href: "#home" },
   { name: "About Us", href: "#about" },
@@ -170,42 +184,53 @@ const quickLinks = [
   { name: "Products", href: "#products" },
   { name: "Testimoni", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
+  { name: "FAQ", href: "#faq" },
 ];
 
-const contactInfo = [
-  {
-    label: "Telepon",
-    value: "+62 823-4342-4071",
-    icon: "lucide:phone",
-  },
-  {
-    label: "Email",
-    value: "info@dkn.digital ",
-    icon: "lucide:mail",
-  },
-  {
-    label: "Lokasi",
-    value:
-      "Jl. Sono No. 18 RT 012 RW 002, Bungur, Senen, Jakarta Pusat, DKI Jakarta",
-    icon: "lucide:map-pin",
-  },
-];
+const mappedContactInfo = computed(() => {
+  if (!profile.value?.contact) {
+    return [
+      { label: "Telepon", value: "+62 823-4342-4071", icon: "lucide:phone" },
+      { label: "Email", value: "info@dkn.digital", icon: "lucide:mail" },
+      {
+        label: "Lokasi",
+        value:
+          "Jl. Sono No. 18 RT 012 RW 002, Bungur, Senen, Jakarta Pusat, DKI Jakarta",
+        icon: "lucide:map-pin",
+      },
+    ];
+  }
+  return [
+    {
+      label: "Telepon",
+      value: "+" + profile.value.contact.whatsapp_number,
+      icon: "lucide:phone",
+    },
+    { label: "Email", value: profile.value.contact.email, icon: "lucide:mail" },
+    {
+      label: "Lokasi",
+      value: profile.value.contact.address,
+      icon: "lucide:map-pin",
+    },
+  ];
+});
 
+// Fallback socials if API data is missing
 const socials = [
   {
-    name: "Instagram",
+    platform: "Instagram",
     icon: "lucide:instagram",
-    href: "https://www.instagram.com/dknofficial.id/",
+    url: "https://www.instagram.com/dknofficial.id/",
   },
   {
-    name: "LinkedIn",
+    platform: "LinkedIn",
     icon: "lucide:linkedin",
-    href: "https://www.linkedin.com/company/pt-dayaguna-kompetensi-nusantara/?originalSubdomain=id",
+    url: "https://www.linkedin.com/company/pt-dayaguna-kompetensi-nusantara/?originalSubdomain=id",
   },
   {
-    name: "WhatsApp",
+    platform: "WhatsApp",
     icon: "lucide:phone",
-    href: "http://wa.me/6282343424071",
+    url: "http://wa.me/6282343424071",
   },
 ];
 </script>
