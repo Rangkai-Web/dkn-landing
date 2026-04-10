@@ -12,7 +12,7 @@ export interface ICourse {
 
 export const useTrainingStore = defineStore("training", () => {
   // State
-  const activeTab = ref("Core Banking");
+  // const activeTab = ref("Core Banking");
   const courses = ref<ICourse[]>([]);
   const isLoading = ref(true);
   const error = ref<string | null>(null);
@@ -28,6 +28,8 @@ export const useTrainingStore = defineStore("training", () => {
   });
 
   const activeCourseCount = computed(() => filteredCourses.value.length);
+
+  const activeTab = ref(categories.value[0]);
 
   // Actions
   const setActiveTab = (tab: string) => {
